@@ -1,0 +1,111 @@
+<div class="home-container">
+  <div class="settings-container">
+    <app-settings></app-settings>
+  </div>
+  <div class="tweets-container">
+    <div class="profile">
+      <div class="head-container">
+        <a routerLink="/home">
+          <svg width="16" height="16" viewBox="0 0 24 24" class="svg-arrow">
+            <path d="M7.414 13l5.043 5.04-1.414 1.42L3.586 12l7.457-7.46 1.414 1.42L7.414 11H21v2H7.414z"></path>
+          </svg>
+        </a>
+        <div class="stupid-text">
+          <h3 class="head">{{ profile.name }}</h3>
+          <p class="twt-count">{{ profile.tweetCount }} tweets</p>
+        </div>
+      </div>
+      <div class="profile-header">
+        <div class="avatar">
+          <img width="100" height="100" src="{{ profile.avatar }}" alt="Profile Avatar" />
+        </div>
+        <div class="profile-info">
+          <div class="profile-info-header">
+            <h2>{{ profile.name }}</h2>
+            <button (click)="editProfile()">Edit Profile</button>
+          </div>
+          <div class="handle">@{{ profile.handle }}</div>
+          <div class="bio">{{ profile.bio }}</div>
+        </div>
+        <div class="counts">
+          <a href="profile">
+            <span class="followers"><b>{{ profile.followersCount }}</b> followers</span>
+          </a>
+          <a href="profile">
+            <span class="following"><b>{{ profile.followingCount }}</b> following</span>
+          </a>
+          <div class="sidebar-container">
+            <div class="box-list">
+              <a href="profile">Tweets</a>
+            </div>
+            <div class="box-list">
+              <a href="profile">Replies</a>
+            </div>
+            <div class="box-list">
+              <a href="profile">Highlight</a>
+            </div>
+            <div class="box-list">
+              <a href="profile">Media</a>
+            </div>
+            <div class="box-list">
+              <a href="profile">Likes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tweet" *ngFor='let tweet of tweets'>
+      <div class="avatar" *ngIf="tweet.avatar;">
+        <img width="50" height="50" src="{{ tweet.avatar }}" alt="user-male-circle--v1" />
+      </div>
+      <div class="content">
+        <div class="header">
+          <div class="user-info">
+            <div class="username">
+              <span class="name">{{ tweet.username }}</span>
+              <span class="handle">@{{ tweet.handle }}</span>
+              <span class="timestamp"> &bull; {{ tweet.timestamp }}</span>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="svg-dots">
+              <path
+                d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+            </svg>
+          </div>
+        </div>
+        <div class="message" style="white-space: pre-line;">{{ tweet.message }}</div>
+        <div class="stupid-ngif-ruined"></div>
+        <div class="image" *ngIf="tweet.image">
+          <img src="{{ tweet.image }}" alt="tweet image"
+            style="max-width: 100%; max-height: 100%; border-radius: 15px;">
+        </div>
+        <div class="actions">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 72" class="icon comment"
+            (click)="updateCommentCount(tweet);">
+            <path
+              d="M41 31h-9V19c0-1.14-.647-2.183-1.668-2.688-1.022-.507-2.243-.39-3.15.302l-21 16C5.438 33.18 5 34.064 5 35s.437 1.82 1.182 2.387l21 16c.533.405 1.174.613 1.82.613.453 0 .908-.103 1.33-.312C31.354 53.183 32 52.14 32 51V39h9c5.514 0 10 4.486 10 10 0 2.21 1.79 4 4 4s4-1.79 4-4c0-9.925-8.075-18-18-18z" />
+          </svg>
+          <span class="count">{{ formatCount(tweet.commentCount) }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 72" class="icon retweet"
+            (click)="updateRetweetCount(tweet);">
+            <path
+              d="M70.676 36.644C70.166 35.636 69.13 35 68 35h-7V19c0-2.21-1.79-4-4-4H34c-2.21 0-4 1.79-4 4s1.79 4 4 4h18c.552 0 .998.446 1 .998V35h-7c-1.13 0-2.165.636-2.676 1.644-.51 1.01-.412 2.22.257 3.13l11 15C55.148 55.545 56.046 56 57 56s1.855-.455 2.42-1.226l11-15c.668-.912.767-2.122.256-3.13zM40 48H22c-.54 0-.97-.427-.992-.96L21 36h7c1.13 0 2.166-.636 2.677-1.644.51-1.01.412-2.22-.257-3.13l-11-15C18.854 15.455 17.956 15 17 15s-1.854.455-2.42 1.226l-11 15c-.667.912-.767 2.122-.255 3.13C3.835 35.365 4.87 36 6 36h7l.012 16.003c.002 2.208 1.792 3.997 4 3.997h22.99c2.208 0 4-1.79 4-4s-1.792-4-4-4z" />
+          </svg>
+          <span class="count">{{ formatCount(tweet.retweetCount) }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 72" class="bi bi-heart icon like"
+            (click)="updateLikeCount(tweet);">
+            <g>
+              <path [attr.fill]="fillColor" (click)="changeColor()"
+                d="M38.723,12c-7.187,0-11.16,7.306-11.723,8.131C26.437,19.306,22.504,12,15.277,12C8.791,12,3.533,18.163,3.533,24.647 C3.533,39.964,21.891,55.907,27,56c5.109-0.093,23.467-16.036,23.467-31.353C50.467,18.163,45.209,12,38.723,12z" />
+            </g>
+          </svg>
+          <span class="count">{{ formatCount(tweet.likeCount) }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="trends-container">
+    <app-trends></app-trends>
+  </div>
+</div>
+<router-outlet></router-outlet>
+<app-modal></app-modal>

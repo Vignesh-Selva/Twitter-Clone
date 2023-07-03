@@ -1,0 +1,134 @@
+* {
+  font-family: "TwitterChirp", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+h3 {
+  padding-left: 16px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  font-size: 21px;
+}
+
+.trending-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  min-width: 300px;
+  max-width: fit-content;
+  background-color: rgba(29, 156, 240, 0.050);
+  padding-top: 12px;
+  border-radius: 25px;
+}
+
+.trend-container {
+  display:flex;
+  padding: 12px 16px;
+  transition-duration: 0.2s;
+  cursor: pointer;
+  align-items: center;
+}
+
+.trend-container:hover {
+  background-color: rgba(222, 238, 255, 0.416);
+}
+
+.trend-info {
+  flex-grow: 1;
+}
+
+.trend-category {
+  opacity: 0.5;
+  font-size: small;
+}
+
+.trend-hashtag {
+  font-weight: bold;
+}
+
+.trend-count {
+  opacity: 0.5;
+  font-size: 13px;
+}
+
+.trend-dots {
+  margin-left: 8px;
+  transition: 0.2s;
+  border-radius: 999px;
+  padding: 5px;
+}
+
+.trend-dots:hover {
+  background-color: rgba(198, 233, 251, 0.737);
+}
+
+.show-more {
+  text-decoration: none;
+  color: rgb(29, 155, 240);
+  padding: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  padding: 12px 16px;
+  transition-duration: 0.2s;
+  cursor: pointer;
+  align-items: center;
+}
+
+.show-more:hover {
+  background-color: rgba(222, 238, 255, 0.416);
+}
+
+.avatar {
+  margin-right: 10px;
+}
+
+.avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+}
+
+.username {
+  font-weight: bold;
+  margin: 0;
+  font-size: 15px;
+}
+
+.userhandle {
+  font-size: 14px;
+  margin: 0;
+}
+
+button{
+  border-radius: 25px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 35px;
+  border: 0px solid transparent;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.stick-when-scrolled {
+  position: sticky;
+  top: 0;
+}
+
+/* .search-bar {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px;
+  margin-left: 15px;
+}
+
+.search-input {
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  background-color: rgba(29, 156, 240, 0.050);
+  outline: none;
+  width: 270px;
+  font-size: 16px;
+} */

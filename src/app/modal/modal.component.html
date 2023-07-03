@@ -1,0 +1,16 @@
+<ng-container *ngIf="display$ | async as display">
+  <section [class.open]="display === 'open'" (click)="close()">
+    <div (click)="$event.stopPropagation()">
+      <button class="close" type="button" (click)="close()">X</button>
+      <div class="new-tweet">
+        <div class="tweet-content">
+          <textarea class="tweet-area" [(ngModel)]="newTweet" placeholder="What is Happening?!"
+            (input)="onTweetChange()"></textarea>
+          <p [class.exceeded-limit]="characterCount > 280">{{ characterCount }}/280</p>
+        </div>
+      </div>
+      <button (click)="postTweet()" [disabled]="isTweetDisabled" [class.disabled-button]="isTweetDisabled"
+        (click)="close()">Tweet</button>
+    </div>
+  </section>
+</ng-container>

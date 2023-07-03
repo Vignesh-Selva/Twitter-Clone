@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="card">
+    <button class="btn-x" routerLink="/feed">X</button>
+    <img class="twt-logo" width="48" height="48" src="https://img.icons8.com/color/48/twitter--v1.png" alt="twitter--v1" />
+    <h1 class="title">Sign up for Twitter</h1>
+    <button class="btn google" (click)="openWindow('google')">
+      <img width="24" height="24" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo" />
+      Sign up with Google</button>
+    <button class="btn apple" (click)="openWindow('apple')">
+      <img width="24" height="24" src="https://img.icons8.com/material-sharp/24/mac-os.png" alt="mac-os" />
+      Sign up with Apple</button>
+    <div class="line">
+      <span class="line-text">or</span>
+    </div>
+    <form (ngSubmit)="register()" #registrationForm="ngForm">
+      <div class="input-group">
+        <input class="input-field" type="text" id="name" name="name" [(ngModel)]="user.name" placeholder="Name"
+          required maxlength="20" #nameInput="ngModel" />
+        <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="error-message">
+          <span *ngIf="nameInput.errors?.['required']">Name is required.</span>
+          <span *ngIf="nameInput.errors?.['maxlength']">Name cannot exceed 20 characters.</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <input class="input-field" type="email" id="email" name="email" [(ngModel)]="user.email" placeholder="Email"
+          required email #emailInput="ngModel" />
+        <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="error-message">
+          <span *ngIf="emailInput.errors?.['required']">Email is required.</span>
+          <span *ngIf="emailInput.errors?.['email']">Invalid email format.</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <input class="input-field" type="password" id="password" name="password" [(ngModel)]="user.password"
+          placeholder="Password" required minlength="8" maxlength="12"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$" #passwordInput="ngModel" />
+        <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error-message">
+          <span *ngIf="passwordInput.errors?.['required']">Password is required.</span>
+          <span *ngIf="passwordInput.errors?.['minlength']">Password must be at least 8 characters long.</span>
+          <span *ngIf="passwordInput.errors?.['maxlength']">Password cannot exceed 12 characters.</span>
+          <span *ngIf="passwordInput.errors?.['pattern']">Password must contain at least one lowercase letter, one
+            uppercase letter, one digit, and one special character.</span>
+        </div>
+      </div>
+      <button class="signup-button" type="submit" [disabled]="!registrationForm.form.valid">Sign Up</button>
+    </form>
+    <div>
+      <p>Already have an account? <a routerLink="/login">Log in</a></p>
+    </div>
+  </div>
+</div>

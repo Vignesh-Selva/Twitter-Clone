@@ -1,0 +1,41 @@
+<!-- <div class="search-bar">
+    <input type="text" placeholder="Search Twitter..." class="search-input">
+  </div> -->
+<div class="trending-container">
+    <h3>What's happening</h3>
+    <div class="trend " *ngFor="let trend of trends">
+        <div class="trend-container">
+            <div class="trend-info">
+                <span class="trend-category">Trending in {{ trend.category }}</span><br>
+                <span class="trend-hashtag">#{{ trend.hashtag }}</span><br>
+                <span class="trend-count">{{ formatCount(trend.tweetCount) }} tweets</span><br>
+            </div>
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" class="trend-dots">
+                <g>
+                    <path
+                        d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z">
+                    </path>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <a class="show-more" href="#">Show more</a>
+</div>
+<div class="trending-container stick-when-scrolled">
+    <h3>Who to Follow</h3>
+    <div class="follow" *ngFor="let follow of follows">
+        <div class="trend-container">
+            <div class="avatar" *ngIf="follow.dp;">
+                <img width="50" height="50" src="{{ follow.dp }}" alt="user-dp" />
+            </div>
+            <div class="trend-info">
+                <span class="trend-hashtag username">{{ follow.username }}</span><br>
+                <span class="trend-category userhandle">@{{ follow.handle }}</span><br>
+            </div>
+            <button (click)="toggleFollow(follow)" [ngClass]="{'following': follow.isFollowing}">
+                {{ follow.isFollowing ? 'Unfollow' : 'Follow' }}
+              </button>              
+        </div>
+    </div>
+    <a class="show-more" href="#">Show more</a>
+</div>

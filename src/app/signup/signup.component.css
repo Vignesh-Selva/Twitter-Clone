@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "TwitterChirp",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 70px;
+}
+
+.card {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
+  border: 1px solid rgb(236, 235, 235);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  width: 400px;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.twt-logo {
+  width: 48px;
+  height: 48px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(252, 253, 254);
+  border: 1px solid rgb(232, 234, 235);
+  border-radius: 9999px;
+  cursor: pointer;
+  height: 48px;
+  margin-bottom: 12px;
+  padding: 0 16px;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.btn-icon {
+  margin-right: 8px;
+}
+
+.btn-x{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(252, 253, 254);
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.btn-x:hover {
+  background-color: #e2e5e8a6;
+  border: 1px solid rgb(232, 234, 235);
+}
+
+.btn:hover {
+  background-color: #d4e8f5a6;
+}
+
+.line {
+  align-items: center;
+  display: flex;
+  margin: 16px 0;
+}
+
+.line::before,
+.line::after {
+  content: "";
+  flex-grow: 1;
+  background-color: rgb(225, 232, 237);
+  height: 1px;
+}
+
+.line-text {
+  color: rgb(101, 119, 134);
+  font-size: 14px;
+  margin: 0 12px;
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-field {
+  border: 1px solid rgb(225, 232, 237);
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 8px;
+  width: 100%;
+}
+
+.error-message {
+  color: rgb(224, 36, 94);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.signup-button {
+  background-color: rgb(29, 161, 242);
+  border: none;
+  border-radius: 9999px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-weight: bold;
+  height: 40px;
+  margin-bottom: 16px;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.signup-button:hover {
+  background-color: rgb(12, 133, 208);
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+a {
+  color: rgb(29, 161, 242);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,33 @@
+*{
+    font-family: "TwitterChirp",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  .home-container {
+    display: flex;
+  }
+  
+  .settings-container{
+    flex: 0.8;
+    border-right: 1px solid rgba(222, 215, 215, 0.63);
+  }
+  .tweets-container{
+    flex: 2;
+    /* padding-left: 15px; */
+  }
+  .trends-container {
+    flex: 1;
+    border-left: 1px solid rgba(222, 215, 215, 0.63);
+  
+  }
+  
+  .home-container > div:last-child {
+    margin-right: 0;
+  }
+  
+  @media (max-width:1000px) {
+    .trends-container{
+      display: none;
+    }
+    .settings-container{
+      flex:0.2;
+    }
+  }

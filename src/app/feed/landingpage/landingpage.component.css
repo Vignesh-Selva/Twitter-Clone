@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "TwitterChirp", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+.image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 100vh;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.svg-overlay {
+  position: fixed;
+  top: 15rem;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  z-index: 1;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 5%;
+  left: 57%;
+  padding: 20px;
+  margin-right: 5%;
+  max-width: 760px;
+  min-width: 437px;
+}
+
+.big-head {
+  font-size: 64px;
+  letter-spacing: -1.2px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+.jtt {
+  margin-bottom: 32px;
+  letter-spacing: 1.5px;
+  font-size: 30px;
+}
+h3 {
+  margin-bottom: 32px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(252, 253, 254);
+  border: 1px solid rgb(232, 234, 235);
+  transition: 0.2s;
+  border-radius: 9999px;
+  cursor: pointer;
+  height: 40px;
+  margin-bottom: 12px;
+  padding: 0 16px;
+  transition: background-color 0.3s;
+  width: 60%;
+}
+
+.btn-txt {
+  margin-left: 10px;
+}
+
+.btn:hover {
+  background-color: #c2ddef93;
+  transition: 0.2s;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.line {
+  align-items: center;
+  display: flex;
+  margin: 16px 0;
+  width: 60%;
+}
+
+.line::before,
+.line::after {
+  content: "";
+  flex-grow: 1;
+  background-color: rgb(225, 232, 237);
+  height: 1px;
+}
+
+.line-text {
+  color: rgb(101, 119, 134);
+  font-size: 14px;
+  margin: 0 12px;
+}
+
+.create {
+  background-color: rgb(29, 155, 240);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 15px;
+}
+.create:hover {
+  background-color: rgb(26, 140, 216);
+}
+.login {
+  color: rgb(29, 155, 240);
+  font-weight: bold;
+  font-size: 15px;
+}
+
+p {
+  width: 50%;
+  font-size: 12px;
+}
+a {
+  text-decoration: none;
+  color: rgb(29, 155, 240);
+}
+
+@media (max-width: 1000px) {
+  .image-container {
+    display: none;
+  }
+  .content-container {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .big-head {
+    margin: 0px;
+  }
+}

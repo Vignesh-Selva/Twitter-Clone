@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card">
+    <img class="twt-logo" width="48" height="48" src="https://img.icons8.com/color/48/twitter--v1.png" alt="twitter--v1"/>
+    <button class="btn-x" routerLink="/feed">X</button>
+    <h1 class="title">Sign in to Twitter</h1>
+    <button class="btn google" (click)="openWindow('google')">
+      <img width="24" height="24" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
+      Sign in with Google</button>
+    <button class="btn apple" (click)="openWindow('apple')">
+      <img width="24" height="24" src="https://img.icons8.com/material-sharp/24/mac-os.png" alt="mac-os"/>
+      Sign in with Apple</button>
+    <div class="line">
+      <span class="line-text">or</span>
+    </div>
+    <div class="input-group">
+      <input class="input-field" type="email" id="email" [(ngModel)]="email" placeholder="Email" name="email" required>
+    </div>
+    <div class="input-group">
+      <input class="input-field" type="password" id="password" [(ngModel)]="password" placeholder="Password"
+        name="password" required>
+    </div>
+    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <button class="login-button" (click)="login()">Login</button>
+    <div>
+      <p>Don't have an account? <a routerLink="/signup">Sign up</a></p>
+    </div>
+  </div>
+</div>
